@@ -23,6 +23,7 @@ body {
     "ft";
   grid-template-columns: 1fr;
   grid-template-rows: auto;
+  min-height: 100vh;
 }
 
 /* ========== Header ========== */
@@ -96,14 +97,13 @@ body {
 
 /* ========== Section Styling (About, Skills, Projects, Contact) ========== */
 #about, #skills, #projects, #contact {
-  background-color: #e0f7fa;       /* خلفية خفيفة للتمييز */
+  background-color: #e0f7fa;
   border-radius: 8px;
   padding: 20px;
-  margin-bottom: 40px;             /* مسافة بين الأقسام */
+  margin-bottom: 40px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* منع وجود margin زائد في آخر قسم */
 #contact {
   margin-bottom: 0;
 }
@@ -251,6 +251,8 @@ body.dark-mode .icon-nav a {
 }
 
 /* ========== Responsive Design ========== */
+
+/* Small screens — Mobile */
 @media (max-width: 768px) {
   #hd {
     flex-direction: column;
@@ -269,5 +271,64 @@ body.dark-mode .icon-nav a {
 
   #sd {
     flex-wrap: wrap;
+  }
+}
+
+/* Medium screens — Tablets */
+@media (min-width: 769px) and (max-width: 1023px) {
+  #container {
+    grid-template-areas:
+      "hd"
+      "sd"
+      "mn"
+      "ft";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+  }
+
+  #hd {
+    padding: 20px 40px;
+  }
+
+  #sd {
+    justify-content: flex-start;
+    gap: 30px;
+    font-size: 22px;
+    padding: 20px 40px;
+  }
+
+  #mn {
+    padding: 40px 40px;
+  }
+}
+
+/* Large screens — Desktop and above */
+@media (min-width: 1024px) {
+  #container {
+    grid-template-areas:
+      "hd hd"
+      "sd mn"
+      "ft ft";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  #hd {
+    padding: 20px 40px;
+  }
+
+  #sd {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 30px 20px;
+    font-size: 22px;
+  }
+
+  #mn {
+    padding: 40px 60px;
+    background-color: #fff;
   }
 }
