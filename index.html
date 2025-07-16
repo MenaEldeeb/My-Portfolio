@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mena Eldeeb</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="CSS/style.css">
+
+  <meta name="description" content="Mena Eldeeb's personal portfolio showcasing web development skills and projects." />
+</head>
+<body>
+  <div id="container">
+
+    <!-- Header -->
+    <header id="hd">
+      <div class="logo">
+        <img src="images/logo.png" alt="Logo" />
+      </div>
+
+      <nav class="nav-text">
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact Me</a>
+      </nav>
+
+      <button id="theme-toggle">Toggle Dark Mode</button>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sd">
+      <nav class="icon-nav">
+        <a href="#about" title="About Me" aria-label="About Me"><i class="fas fa-user"></i></a>
+        <a href="#skills" title="Skills" aria-label="Skills"><i class="fas fa-laptop-code"></i></a>
+        <a href="#projects" title="Projects" aria-label="Projects"><i class="fas fa-folder-open"></i></a>
+        <a href="#contact" title="Contact Me" aria-label="Contact Me"><i class="fas fa-envelope"></i></a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="mn">
+      <!-- About Me -->
+      <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+          <img src="images/Mena.jpg" alt="Mena Eldeeb" class="profile-img" />
+          <div>
+            <h1 class="my-name">Mena Eldeeb</h1>
+            <p>
+              I am a student at Al-Azhar University, Faculty of Engineering, Department of Computer Systems and Engineering.
+              I have knowledge of HTML, CSS, JavaScript, and C++. I’m also interested in problem solving and enjoy practicing it regularly.
+              In my free time, I love reading books and exploring new ideas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>C++</li>
+          <li>Python</li> 
+          
+        </ul>
+      </section>>
+
+      <!-- Projects -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-container">
+          <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+            <a href="https://github.com/MenaEldeeb/My-PORTOFOLIO.git" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Me -->
+      <section id="contact">
+        <h2>Contact Me</h2>
+
+        <div class="contact-info">
+          <p><strong>Email:</strong> menaeldeeb98@gmail.com</p>
+          <p><strong>Phone:</strong> +20 1278616075</p>
+        </div>
+
+        <form id="contact-form" method="POST" action="https://formsubmit.co/menaeldeeb98@gmail.com">
+          <!-- Disable captcha -->
+          <input type="hidden" name="_captcha" value="false" />
+          <!-- You can add other hidden inputs for formsubmit if needed -->
+
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+          <button type="submit">Send</button>
+        </form>
+
+        <p id="form-status" style="color: green; margin-top: 10px; display: none;"></p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="ft">
+      &copy; 2025 My Portfolio. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Handle form submission with fetch to prevent page reload
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.style.color = 'green';
+          status.textContent = 'Thank you! Your message has been sent.';
+          status.style.display = 'block';
+          form.reset();
+        } else {
+          return response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.style.color = 'red';
+              status.textContent = data["errors"].map(error => error.message).join(", ");
+            } else {
+              status.style.color = 'red';
+              status.textContent = 'Oops! There was a problem submitting your form';
+            }
+            status.style.display = 'block';
+          });
+        }
+      }).catch(error => {
+        status.style.color = 'red';
+        status.textContent = 'Oops! There was a problem submitting your form';
+        status.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>

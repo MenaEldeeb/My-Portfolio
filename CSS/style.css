@@ -1,0 +1,273 @@
+/* ========== Reset ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== Global Styles ========== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ========== Layout ========== */
+#container {
+  display: grid;
+  grid-template-areas:
+    "hd"
+    "mn"
+    "sd"
+    "ft";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+/* ========== Header ========== */
+#hd {
+  grid-area: hd;
+  background-color: #007b8a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-text a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-text a:hover {
+  color: #ffd580;
+}
+
+#theme-toggle {
+  background-color: white;
+  color: #007b8a;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#theme-toggle:hover {
+  background-color: #eee;
+}
+
+/* ========== Sidebar ========== */
+#sd {
+  grid-area: sd;
+  background-color: #ffe8b0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.icon-nav a {
+  color: #333;
+  transition: color 0.3s;
+}
+
+.icon-nav a:hover {
+  color: #007b8a;
+}
+
+/* ========== Main Content ========== */
+#mn {
+  grid-area: mn;
+  padding: 30px 20px;
+  background-color: #fff;
+}
+
+/* ========== Section Styling (About, Skills, Projects, Contact) ========== */
+#about, #skills, #projects, #contact {
+  background-color: #e0f7fa;       /* خلفية خفيفة للتمييز */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 40px;             /* مسافة بين الأقسام */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* منع وجود margin زائد في آخر قسم */
+#contact {
+  margin-bottom: 0;
+}
+
+/* ========== About ========== */
+.about-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007b8a;
+}
+
+.my-name {
+  font-size: 28px;
+  color: #007b8a;
+}
+
+/* ========== Skills ========== */
+#skills ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#skills li {
+  background-color: #007b8a;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+/* ========== Projects ========== */
+.projects-container {
+  margin-top: 20px;
+}
+
+.project-card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.project-card a {
+  color: #007b8a;
+  text-decoration: underline;
+}
+
+/* ========== Contact ========== */
+.contact-info p {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+form {
+  margin-top: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #007b8a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #005f6b;
+}
+
+/* ========== Footer ========== */
+#ft {
+  grid-area: ft;
+  background-color: #1e1e1e;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
+
+/* ========== Dark Mode ========== */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode #hd,
+body.dark-mode #ft {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+body.dark-mode #mn {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode #about,
+body.dark-mode #skills,
+body.dark-mode #projects,
+body.dark-mode #contact {
+  background-color: #2a2a2a;
+  box-shadow: none;
+}
+
+body.dark-mode .project-card {
+  background-color: #3a3a3a;
+  border-color: #555;
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.dark-mode .nav-text a,
+body.dark-mode .icon-nav a {
+  color: #90caf9;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+  #hd {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #skills ul {
+    justify-content: center;
+  }
+
+  #sd {
+    flex-wrap: wrap;
+  }
+}
