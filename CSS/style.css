@@ -13,6 +13,50 @@ body {
   line-height: 1.6;
 }
 
+/* ========== Home Section ========== */
+#home {
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to right, #74ebd5, #9face6);
+  color: #333;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+#home h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #007b8a;
+}
+#home p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+#home .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #007b8a;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+#home .btn:hover {
+  background: #005f6b;
+  transform: scale(1.05);
+}
+/* Dark Mode Home */
+body.dark-mode #home {
+  background: linear-gradient(to right, #1e1e1e, #333);
+  color: #f1f1f1;
+}
+body.dark-mode #home h1 {
+  color: #90caf9;
+}
+
 /* ========== Layout ========== */
 #container {
   display: grid;
@@ -37,11 +81,9 @@ body {
   flex-wrap: wrap;
   padding: 20px;
 }
-
 .logo img {
   height: 50px;
 }
-
 .nav-text a {
   color: white;
   text-decoration: none;
@@ -49,11 +91,9 @@ body {
   font-weight: 500;
   transition: color 0.3s;
 }
-
 .nav-text a:hover {
   color: #ffd580;
 }
-
 #theme-toggle {
   background-color: white;
   color: #007b8a;
@@ -63,7 +103,6 @@ body {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 #theme-toggle:hover {
   background-color: #eee;
 }
@@ -78,12 +117,10 @@ body {
   padding: 20px;
   font-size: 20px;
 }
-
 .icon-nav a {
   color: #333;
   transition: color 0.3s;
 }
-
 .icon-nav a:hover {
   color: #007b8a;
 }
@@ -103,10 +140,7 @@ body {
   margin-bottom: 40px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
-#contact {
-  margin-bottom: 0;
-}
+#contact { margin-bottom: 0; }
 
 /* ========== About ========== */
 .about-content {
@@ -115,7 +149,6 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
-
 .profile-img {
   width: 150px;
   height: 150px;
@@ -123,13 +156,17 @@ body {
   object-fit: cover;
   border: 3px solid #007b8a;
 }
-
 .my-name {
   font-size: 28px;
   color: #007b8a;
 }
 
 /* ========== Skills ========== */
+#skills h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #007b8a;
+}
 #skills ul {
   list-style: none;
   display: flex;
@@ -137,7 +174,6 @@ body {
   gap: 10px;
   margin-top: 10px;
 }
-
 #skills li {
   background-color: #007b8a;
   color: white;
@@ -146,47 +182,50 @@ body {
 }
 
 /* ========== Projects ========== */
+#projects h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #007b8a;
+}
 .projects-container {
   margin-top: 20px;
 }
-
 .project-card {
   background-color: #f0f0f0;
   padding: 20px;
   border-radius: 6px;
   margin-bottom: 15px;
 }
-
 .project-card a {
   color: #007b8a;
   text-decoration: underline;
 }
 
 /* ========== Contact ========== */
+#contact h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #007b8a;
+}
 .contact-info p {
   margin-bottom: 5px;
   font-weight: 500;
 }
-
 form {
   margin-top: 20px;
 }
-
 form label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
-
-form input,
-form textarea {
+form input, form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 form button {
   background-color: #007b8a;
   color: white;
@@ -195,7 +234,6 @@ form button {
   border-radius: 4px;
   cursor: pointer;
 }
-
 form button:hover {
   background-color: #005f6b;
 }
@@ -214,17 +252,14 @@ body.dark-mode {
   background-color: #121212;
   color: #f1f1f1;
 }
-
 body.dark-mode #hd,
 body.dark-mode #ft {
   background-color: #1e1e1e;
   color: #f1f1f1;
 }
-
 body.dark-mode #mn {
   background-color: #1a1a1a;
 }
-
 body.dark-mode #about,
 body.dark-mode #skills,
 body.dark-mode #projects,
@@ -232,26 +267,22 @@ body.dark-mode #contact {
   background-color: #2a2a2a;
   box-shadow: none;
 }
-
 body.dark-mode .project-card {
   background-color: #3a3a3a;
   border-color: #555;
 }
-
 body.dark-mode form input,
 body.dark-mode form textarea {
   background-color: #333;
   color: white;
   border: 1px solid #555;
 }
-
 body.dark-mode .nav-text a,
 body.dark-mode .icon-nav a {
   color: #90caf9;
 }
 
 /* ========== Responsive Design ========== */
-
 /* Small screens — Mobile */
 @media (max-width: 768px) {
   #hd {
@@ -259,16 +290,13 @@ body.dark-mode .icon-nav a {
     gap: 10px;
     text-align: center;
   }
-
   .about-content {
     flex-direction: column;
     text-align: center;
   }
-
   #skills ul {
     justify-content: center;
   }
-
   #sd {
     flex-wrap: wrap;
   }
@@ -285,18 +313,15 @@ body.dark-mode .icon-nav a {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr auto;
   }
-
   #hd {
     padding: 20px 40px;
   }
-
   #sd {
     justify-content: flex-start;
     gap: 30px;
     font-size: 22px;
     padding: 20px 40px;
   }
-
   #mn {
     padding: 40px 40px;
   }
@@ -313,11 +338,9 @@ body.dark-mode .icon-nav a {
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
   }
-
   #hd {
     padding: 20px 40px;
   }
-
   #sd {
     flex-direction: column;
     justify-content: flex-start;
@@ -326,7 +349,6 @@ body.dark-mode .icon-nav a {
     padding: 30px 20px;
     font-size: 22px;
   }
-
   #mn {
     padding: 40px 60px;
     background-color: #fff;

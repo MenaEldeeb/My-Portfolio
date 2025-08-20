@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mena Eldeeb</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+ <link rel="stylesheet" href="CSS/style.css">
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script><!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-4Ff3z3OaVjJ7QoKwcB0hX3CUpi+LbGgxu43XaQ8hRIZL9qu0pLZpKZyZL6nVjQzD2R1Fz+0RyjK1nWc5HklzFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="CSS/style.css">
-
-  <meta name="description" content="Mena Eldeeb's personal portfolio showcasing web development skills and projects." />
 </head>
 <body>
   <div id="container">
@@ -24,6 +22,7 @@
       </div>
 
       <nav class="nav-text">
+        <a href="#home">Home</a>
         <a href="#about">About Me</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
@@ -36,6 +35,7 @@
     <!-- Sidebar -->
     <aside id="sd">
       <nav class="icon-nav">
+        <a href="#home" title="Home" aria-label="Home"><i class="fas fa-home"></i></a>
         <a href="#about" title="About Me" aria-label="About Me"><i class="fas fa-user"></i></a>
         <a href="#skills" title="Skills" aria-label="Skills"><i class="fas fa-laptop-code"></i></a>
         <a href="#projects" title="Projects" aria-label="Projects"><i class="fas fa-folder-open"></i></a>
@@ -45,11 +45,22 @@
 
     <!-- Main Content -->
     <main id="mn">
+
+      <!-- Home -->
+      <section id="home">
+        <div class="home-content">
+          <h1>Welcome to My Portfolio</h1>
+          <p>Hi, I’m <strong>Mena Eldeeb</strong>, a student at Al-Azhar University, Faculty of Engineering.</p>
+          <p>I’m passionate about Frontend Development & Problem Solving 🚀</p>
+          <a href="#projects" class="btn">See My Projects</a>
+        </div>
+      </section>
+
       <!-- About Me -->
       <section id="about">
         <h2>About Me</h2>
         <div class="about-content">
-          <img src="images/Mena.jpg" alt="Mena Eldeeb" class="profile-img" />
+          <img src="images/Mena.jpg" alt="Profile picture of Mena Eldeeb" class="profile-img" />
           <div>
             <h1 class="my-name">Mena Eldeeb</h1>
             <p>
@@ -70,7 +81,6 @@
           <li>JavaScript</li>
           <li>C++</li>
           <li>Python</li> 
-          
         </ul>
       </section>
 
@@ -82,6 +92,15 @@
             <h3>Portfolio Website</h3>
             <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
             <a href="https://github.com/MenaEldeeb/My-PORTOFOLIO.git" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </div> <div class="project-card">
+            <h3>To do list</h3>
+            <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+            <a href="https://github.com/MenaEldeeb/To-Do-Iist.git" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </div>
+          <div class="project-card">
+            <h3>Fokir</h3>
+            <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+            <a href="https://github.com/MenaEldeeb/fokir.git" target="_blank" rel="noopener noreferrer">View on GitHub</a>
           </div>
         </div>
       </section>
@@ -89,15 +108,8 @@
       <!-- Contact Me -->
       <section id="contact">
         <h2>Contact Me</h2>
-
-        <div class="contact-info">
-          
-        </div>
-
         <form id="contact-form" method="POST" action="https://formsubmit.co/menaeldeeb98@gmail.com">
-          <!-- Disable captcha -->
           <input type="hidden" name="_captcha" value="false" />
-          <!-- You can add other hidden inputs for formsubmit if needed -->
 
           <label for="name">Name</label>
           <input type="text" id="name" name="name" placeholder="Your Name" required />
@@ -110,14 +122,13 @@
 
           <button type="submit">Send</button>
         </form>
-
         <p id="form-status" style="color: green; margin-top: 10px; display: none;"></p>
       </section>
     </main>
 
     <!-- Footer -->
     <footer id="ft">
-      &copy; 2025 My Portfolio. All rights reserved.
+      &copy; 2025 Mena Eldeeb. All rights reserved.
     </footer>
   </div>
 
@@ -128,21 +139,18 @@
       document.body.classList.toggle('dark-mode');
     });
 
-    // Handle form submission with fetch to prevent page reload
+    // Handle form submission
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
 
     form.addEventListener('submit', e => {
       e.preventDefault();
-
       const formData = new FormData(form);
 
       fetch(form.action, {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       }).then(response => {
         if (response.ok) {
           status.style.color = 'green';
@@ -151,17 +159,12 @@
           form.reset();
         } else {
           return response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              status.style.color = 'red';
-              status.textContent = data["errors"].map(error => error.message).join(", ");
-            } else {
-              status.style.color = 'red';
-              status.textContent = 'Oops! There was a problem submitting your form';
-            }
+            status.style.color = 'red';
+            status.textContent = data.errors ? data.errors.map(e => e.message).join(", ") : 'Oops! There was a problem submitting your form';
             status.style.display = 'block';
           });
         }
-      }).catch(error => {
+      }).catch(() => {
         status.style.color = 'red';
         status.textContent = 'Oops! There was a problem submitting your form';
         status.style.display = 'block';
