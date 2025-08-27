@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
- <link rel="stylesheet" href="CSS/style.css">
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script><!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-4Ff3z3OaVjJ7QoKwcB0hX3CUpi+LbGgxu43XaQ8hRIZL9qu0pLZpKZyZL6nVjQzD2R1Fz+0RyjK1nWc5HklzFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-</head>
 <body>
   <div id="container">
 
@@ -29,18 +30,18 @@
         <a href="#contact">Contact Me</a>
       </nav>
 
-      <button id="theme-toggle">Toggle Dark Mode</button>
+      <button id="theme-toggle">🌙</button>
     </header>
 
     <!-- Sidebar -->
-    <aside id="sd">
+    <!-- <aside id="sd">
       <nav class="icon-nav">
-        <a href="#home" title="Home" aria-label="Home"><i class="fas fa-home"></i></a>
-        <a href="#about" title="About Me" aria-label="About Me"><i class="fas fa-user"></i></a>
-        <a href="#skills" title="Skills" aria-label="Skills"><i class="fas fa-laptop-code"></i></a>
-        <a href="#projects" title="Projects" aria-label="Projects"><i class="fas fa-folder-open"></i></a>
-        <a href="#contact" title="Contact Me" aria-label="Contact Me"><i class="fas fa-envelope"></i></a>
-      </nav>
+        <a href="#home" title="Home"><i class="fas fa-home"></i></a>
+        <a href="#about" title="About Me"><i class="fas fa-user"></i></a>
+        <a href="#skills" title="Skills"><i class="fas fa-laptop-code"></i></a>
+        <a href="#projects" title="Projects"><i class="fas fa-folder-open"></i></a>
+        <a href="#contact" title="Contact Me"><i class="fas fa-envelope"></i></a>
+      </nav> -->
     </aside>
 
     <!-- Main Content -->
@@ -50,7 +51,7 @@
       <section id="home">
         <div class="home-content">
           <h1>Welcome to My Portfolio</h1>
-          <p>Hi, I’m <strong>Mena Eldeeb</strong>, a student at Al-Azhar University, Faculty of Engineering.</p>
+          <p>Hi, I’m <strong>Mena Eldeeb</strong></p>
           <p>I’m passionate about Frontend Development & Problem Solving 🚀</p>
           <a href="#projects" class="btn">See My Projects</a>
         </div>
@@ -89,19 +90,24 @@
         <h2>Projects</h2>
         <div class="projects-container">
           <div class="project-card">
-            <h3>Portfolio Website</h3>
-            <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
-            <a href="https://github.com/MenaEldeeb/My-PORTOFOLIO.git" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-          </div> <div class="project-card">
-            <h3>To do list</h3>
-            <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
-            <a href="https://github.com/MenaEldeeb/To-Do-Iist.git" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            <img src="images/Screenshot (357).png" alt="To-do List Screenshot">
+            <h3>To-do List</h3>
+            <p>A simple to-do list app with HTML, CSS, and JavaScript.</p>
+            <a href="https://github.com/MenaEldeeb/To-Do-Iist.git" target="_blank">View on GitHub</a>
           </div>
           <div class="project-card">
+            <img src="images/Screenshot (355).png" alt="Fokir Template Screenshot">
             <h3>Fokir</h3>
-            <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
-            <a href="https://github.com/MenaEldeeb/fokir.git" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            <p>A fully responsive template built with HTML, CSS, and JavaScript.</p>
+            <a href="https://github.com/MenaEldeeb/fokir.git" target="_blank">View on GitHub</a>
           </div>
+          <div class="project-card">
+            <img src="images/Screenshot (356).png" alt="To-do List Screenshot">
+            <h3>Bakery Engage</h3>
+            <p>A simple app with HTML, CSS,</p>
+            <a href=" https://github.com/MenaEldeeb/task4.git" target="_blank">View on GitHub</a>
+          </div>
+
         </div>
       </section>
 
@@ -122,7 +128,7 @@
 
           <button type="submit">Send</button>
         </form>
-        <p id="form-status" style="color: green; margin-top: 10px; display: none;"></p>
+        <p id="form-status" style="display:none;"></p>
       </section>
     </main>
 
@@ -132,44 +138,6 @@
     </footer>
   </div>
 
-  <script>
-    // Dark Mode Toggle
-    const toggleBtn = document.getElementById('theme-toggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    });
-
-    // Handle form submission
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const formData = new FormData(form);
-
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          status.style.color = 'green';
-          status.textContent = 'Thank you! Your message has been sent.';
-          status.style.display = 'block';
-          form.reset();
-        } else {
-          return response.json().then(data => {
-            status.style.color = 'red';
-            status.textContent = data.errors ? data.errors.map(e => e.message).join(", ") : 'Oops! There was a problem submitting your form';
-            status.style.display = 'block';
-          });
-        }
-      }).catch(() => {
-        status.style.color = 'red';
-        status.textContent = 'Oops! There was a problem submitting your form';
-        status.style.display = 'block';
-      });
-    });
-  </script>
+  <script src="JS/main.js"></script>
 </body>
 </html>
