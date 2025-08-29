@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1752701843484,
@@ -48,6 +48,30 @@
                 {
                     "date": 1756333551245,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,11 +91,8 @@\n   margin: 0 15px;\r\n   font-weight: 500;\r\n   transition: color 0.3s;\r\n }\r\n-.nav-text a:hover {\r\n-  color: #ffd580;\r\n-}\r\n #theme-toggle {\r\n   background-color: white;\r\n   color: #007b8a;\r\n   border: none;\r\n"
+                },
+                {
+                    "date": 1756338913632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,18 @@\n   font-family: 'Poppins', sans-serif;\r\n   background-color: #f5f7fa;\r\n   color: #333;\r\n   line-height: 1.6;\r\n+  overflow-x: hidden; \r\n }\r\n \r\n+\r\n+img {\r\n+  max-width: 100%;\r\n+  height: auto;\r\n+  display: block;\r\n+}\r\n+\r\n /* ========== Home Section ========== */\r\n #home {\r\n   height: 100vh; \r\n   display: flex;\r\n@@ -345,13 +353,13 @@\n   #sd {\r\n     justify-content: flex-start;\r\n     gap: 30px;\r\n     font-size: 22px;\r\n-    padding: 20px 40px;\r\n+    padding: 20px 20px; /* قللت الـ padding يمين وشمال */\r\n     flex-wrap: wrap;\r\n   }\r\n   #mn {\r\n-    padding: 40px 40px;\r\n+    padding: 40px 20px; /* قللت يمين وشمال */\r\n   }\r\n   .projects-container {\r\n     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));\r\n     gap: 20px;\r\n@@ -378,8 +386,9 @@\n   }\r\n   #sd {\r\n     flex-wrap: wrap;\r\n     justify-content: center;\r\n+    padding: 15px 10px; \r\n   }\r\n   .projects-container {\r\n     grid-template-columns: 1fr;\r\n     gap: 15px;\r\n"
+                },
+                {
+                    "date": 1756339047808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -185,9 +185,9 @@\n   color: white;\r\n   padding: 12px 10px;\r\n   border-radius: 6px;\r\n   text-align: center;\r\n-  font-weight: 500;\r\n+  font-weight: 300;\r\n   transition: transform 0.3s ease, background-color 0.3s ease;\r\n }\r\n #skills li:hover {\r\n   background-color: #005f6b;\r\n"
+                },
+                {
+                    "date": 1756473066751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -192,9 +192,71 @@\n #skills li:hover {\r\n   background-color: #005f6b;\r\n   transform: translateY(-4px);\r\n }\r\n+/* ========== Services ========== */\r\n+#services {\r\n+  background-color: #e0f7fa;\r\n+  border-radius: 8px;\r\n+  padding: 40px 20px;\r\n+  margin-bottom: 40px;\r\n+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);\r\n+}\r\n+#services h2 {\r\n+  font-size: 26px;\r\n+  margin-bottom: 30px;\r\n+  color: #007b8a;\r\n+  text-align: center;\r\n+}\r\n+.services-container {\r\n+  display: grid;\r\n+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\r\n+  gap: 25px;\r\n+  max-width: 1100px;\r\n+  margin: 0 auto;\r\n+}\r\n+.service-card {\r\n+  background-color: #fff;\r\n+  padding: 30px 20px;\r\n+  border-radius: 10px;\r\n+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);\r\n+  text-align: center;\r\n+  transition: transform 0.3s ease, box-shadow 0.3s ease;\r\n+}\r\n+.service-card:hover {\r\n+  transform: translateY(-6px);\r\n+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);\r\n+}\r\n+.service-card i {\r\n+  color: #007b8a;\r\n+  margin-bottom: 15px;\r\n+}\r\n+.service-card h3 {\r\n+  font-size: 1.3rem;\r\n+  margin-bottom: 10px;\r\n+  color: #007b8a;\r\n+}\r\n+.service-card p {\r\n+  font-size: 0.95rem;\r\n+  color: #555;\r\n+}\r\n \r\n+/* ========== Dark Mode Services ========== */\r\n+body.dark-mode #services {\r\n+  background-color: #2a2a2a;\r\n+}\r\n+body.dark-mode .service-card {\r\n+  background-color: #3a3a3a;\r\n+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);\r\n+}\r\n+body.dark-mode .service-card i,\r\n+body.dark-mode .service-card h3 {\r\n+  color: #90caf9;\r\n+}\r\n+body.dark-mode .service-card p {\r\n+  color: #ddd;\r\n+}\r\n+\r\n /* ========== Projects ========== */\r\n #projects {\r\n   padding: 60px 20px;\r\n   background-color: #fff;\r\n"
+                },
+                {
+                    "date": 1756473511348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -253,10 +253,14 @@\n   color: #90caf9;\r\n }\r\n body.dark-mode .service-card p {\r\n   color: #ddd;\r\n-}\r\n \r\n+  }\r\n+      #about,services,projects,projects h2{\r\n+        text-align: center;\r\n+      }\r\n+      \r\n /* ========== Projects ========== */\r\n #projects {\r\n   padding: 60px 20px;\r\n   background-color: #fff;\r\n@@ -415,13 +419,13 @@\n   #sd {\r\n     justify-content: flex-start;\r\n     gap: 30px;\r\n     font-size: 22px;\r\n-    padding: 20px 20px; /* قللت الـ padding يمين وشمال */\r\n+    padding: 20px 20px; \r\n     flex-wrap: wrap;\r\n   }\r\n   #mn {\r\n-    padding: 40px 20px; /* قللت يمين وشمال */\r\n+    padding: 40px 20px;\r\n   }\r\n   .projects-container {\r\n     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));\r\n     gap: 20px;\r\n"
+                },
+                {
+                    "date": 1756473537926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -255,9 +255,9 @@\n body.dark-mode .service-card p {\r\n   color: #ddd;\r\n \r\n   }\r\n-      #about,services,projects,projects h2{\r\n+      #about,services,projects,projects,skills h2{\r\n         text-align: center;\r\n       }\r\n       \r\n /* ========== Projects ========== */\r\n"
+                },
+                {
+                    "date": 1756473809760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -254,12 +254,18 @@\n }\r\n body.dark-mode .service-card p {\r\n   color: #ddd;\r\n \r\n-  }\r\n-      #about,services,projects,projects,skills h2{\r\n-        text-align: center;\r\n-      }\r\n+}\r\n+#about h2,\r\n+#projects h2,\r\n+#services h2,\r\n+#contact h2,\r\n+#skills h2 {\r\n+  text-align: center;\r\n+}\r\n+\r\n+\r\n       \r\n /* ========== Projects ========== */\r\n #projects {\r\n   padding: 60px 20px;\r\n"
                 }
             ],
             "date": 1752701843484,

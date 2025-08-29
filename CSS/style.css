@@ -11,6 +11,14 @@ body {
   background-color: #f5f7fa;
   color: #333;
   line-height: 1.6;
+  overflow-x: hidden; 
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ========== Home Section ========== */
@@ -178,14 +186,86 @@ body.dark-mode #home h1 {
   padding: 12px 10px;
   border-radius: 6px;
   text-align: center;
-  font-weight: 500;
+  font-weight: 300;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 #skills li:hover {
   background-color: #005f6b;
   transform: translateY(-4px);
 }
+/* ========== Services ========== */
+#services {
+  background-color: #e0f7fa;
+  border-radius: 8px;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+#services h2 {
+  font-size: 26px;
+  margin-bottom: 30px;
+  color: #007b8a;
+  text-align: center;
+}
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.service-card {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.service-card i {
+  color: #007b8a;
+  margin-bottom: 15px;
+}
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #007b8a;
+}
+.service-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
 
+/* ========== Dark Mode Services ========== */
+body.dark-mode #services {
+  background-color: #2a2a2a;
+}
+body.dark-mode .service-card {
+  background-color: #3a3a3a;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+body.dark-mode .service-card i,
+body.dark-mode .service-card h3 {
+  color: #90caf9;
+}
+body.dark-mode .service-card p {
+  color: #ddd;
+
+}
+#about h2,
+#projects h2,
+#services h2,
+#contact h2,
+#skills h2 {
+  text-align: center;
+}
+
+
+      
 /* ========== Projects ========== */
 #projects {
   padding: 60px 20px;
@@ -346,11 +426,11 @@ body.dark-mode #skills li {
     justify-content: flex-start;
     gap: 30px;
     font-size: 22px;
-    padding: 20px 40px;
+    padding: 20px 20px; 
     flex-wrap: wrap;
   }
   #mn {
-    padding: 40px 40px;
+    padding: 40px 20px;
   }
   .projects-container {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -379,6 +459,7 @@ body.dark-mode #skills li {
   #sd {
     flex-wrap: wrap;
     justify-content: center;
+    padding: 15px 10px; 
   }
   .projects-container {
     grid-template-columns: 1fr;
